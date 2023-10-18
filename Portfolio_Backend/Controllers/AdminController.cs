@@ -10,39 +10,96 @@ namespace Portfolio_Backend.Controllers
     public class AdminController : ControllerBase
     {
         private readonly DBHelper _db;
+        private readonly CreateNewProject _cnp;
+        private readonly GetProjects _gp;
+        DatabaseHelper _dbHelper = new DatabaseHelper();
+
         public AdminController(EF_DataContext ef_dataContext)
         {
-            _db = new DBHelper(ef_dataContext);
+            _db = new DBHelper(ef_dataContext, _dbHelper);
+            _cnp = new CreateNewProject(ef_dataContext, _dbHelper);
+            _gp = new GetProjects(ef_dataContext, _dbHelper);
         }
-        // GET: api/<AdminController>
+
+        // GET /getProjects
         [HttpGet]
-        
-        public IEnumerable<string> Get()
+        [Route("getProjects")]
+        public IActionResult Get()
         {
-            return new string[] { "value1", "value2" };
+            try
+            {
+                IEnumerable<ProjectModel> data = _gp.GetAllProjects();
+
+                if(data.Any())
+                {
+                    Console.WriteLine("GetProjects");
+                    return Ok(data);
+                }
+                else
+                {
+                    return BadRequest();
+                }
+            }
+            catch(Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         // GET api/<AdminController>/5
-        [HttpGet("{id}")]
+        [HttpGet]
         //[Route("api/get")]
         public string Get(int id)
         {
             return "value";
         }
 
-        // POST api/<AdminController>
+        // POST /admin
         [HttpPost]
         [Route("admin")]
         public IActionResult Post([FromBody] LoginModel model)
         {
-            Console.WriteLine("Admin");
+            
             try
             {
-                return Ok(_db.CheckLogin(model));
+                if(_db.CheckLogin(model))
+                {
+                    Console.WriteLine("Admin");
+                    return Ok();
+                }
+                else
+                {
+                    return BadRequest();
+                }
+                
             }
             catch (Exception ex)
             {
                 return BadRequest(ex.Message);
+            }
+        }
+
+        //POST /addProject
+        [HttpPost]
+        [Route("addProject")]
+        public IActionResult Post([FromBody] ProjectModel projects)
+        {
+            try
+            {
+                Console.WriteLine("Projects1");
+                if (_cnp.AddProject(projects))
+                {
+                    Console.WriteLine("Projects");
+                    return Ok();
+                }
+                else
+                {
+                    return BadRequest();
+                }
+            }
+            catch(Exception ex) 
+            {
+                return BadRequest(ex.Message); 
             }
         }
 

@@ -7,6 +7,7 @@ namespace Portfolio_Backend.Models
     {
         public EF_DataContext(DbContextOptions<EF_DataContext> options) : base(options) { }
 
-        public DbSet<LoginModel> Users { get; set; }
+        public DbSet<LoginModel> login { get; set; }
+        public DbSet<ProjectModel> projects { get; set; }
     }
 }
