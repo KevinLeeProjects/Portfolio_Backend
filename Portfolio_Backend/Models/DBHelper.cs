@@ -55,7 +55,6 @@ namespace Portfolio_Backend.Models
                             string DBemail = reader["Email"].ToString();
                             string DBpassword = reader["Password"].ToString();
                             string DBSalt = reader["Salt"].ToString();
-                            Console.WriteLine(DBemail);
 
                             if(DBemail == loginModel.email)
                             {
