@@ -31,8 +31,8 @@ namespace Portfolio_Backend.Models
             using (NpgsqlConnection connection = GetDatabaseConnection())
             {
                 // Step 2: Prepare and execute the INSERT query
-                string query = "INSERT INTO projects (title, route, imgsrc, imgalt, github, skills) " +
-                               "VALUES (@title, @route, @imgsrc, @imgalt, @github, @skills)";
+                string query = "INSERT INTO projects (title, route, imgsrc, imgalt, github, skills, descriptions, subImages) " +
+                               "VALUES (@title, @route, @imgsrc, @imgalt, @github, @skills, @descriptions, @subImages)";
 
                 using (NpgsqlCommand command = new NpgsqlCommand(query, connection))
                 {
@@ -43,6 +43,8 @@ namespace Portfolio_Backend.Models
                     command.Parameters.AddWithValue("@imgalt", model.imgalt);
                     command.Parameters.AddWithValue("@github", model.github);
                     command.Parameters.AddWithValue("@skills", model.skills);
+                    command.Parameters.AddWithValue("@descriptions", model.descriptions);
+                    command.Parameters.AddWithValue("@subImages", model.subImages);
 
                     // Step 4: Execute the query and get the number of rows affected
                     int rowsAffected = command.ExecuteNonQuery();
