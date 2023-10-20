@@ -21,7 +21,6 @@ namespace Portfolio_Backend.Models
 
         public bool AddProject(ProjectModel model)
         {
-            Console.WriteLine("Here");
             var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json");
 
             IConfigurationRoot configuration = builder.Build();

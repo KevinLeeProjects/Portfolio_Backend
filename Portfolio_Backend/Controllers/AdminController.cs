@@ -32,7 +32,6 @@ namespace Portfolio_Backend.Controllers
 
                 if(data.Any())
                 {
-                    Console.WriteLine("GetProjects");
                     return Ok(data);
                 }
                 else
@@ -64,7 +63,6 @@ namespace Portfolio_Backend.Controllers
             {
                 if(_db.CheckLogin(model))
                 {
-                    Console.WriteLine("Admin");
                     return Ok();
                 }
                 else

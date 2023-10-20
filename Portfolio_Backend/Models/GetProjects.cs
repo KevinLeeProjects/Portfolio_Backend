@@ -43,7 +43,6 @@ namespace Portfolio_Backend.Models
                         {
                             while (reader.Read())
                             {
-                                Console.WriteLine(reader["descriptions"]);
                                 ProjectModel project = new ProjectModel
                                 {
                                     title = reader["title"].ToString(),
@@ -55,7 +54,6 @@ namespace Portfolio_Backend.Models
                                     descriptions = reader["descriptions"] as string[],
                                     subImages = reader["subimages"] as string[]
                                 };
-                                Console.WriteLine(reader);
                                 result.Add(project);
                             }
                         }
