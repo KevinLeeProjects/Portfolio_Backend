@@ -50,7 +50,7 @@ namespace Portfolio_Backend.Controllers
         //[Route("api/get")]
         public string Get(int id)
         {
-            return "value";
+            return "Kevin Lee Backend";
         }
 
         // POST /admin
