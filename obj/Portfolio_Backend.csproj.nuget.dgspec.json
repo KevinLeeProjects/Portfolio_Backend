@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\maske\\source\\repos\\Portfolio_Backend\\Portfolio_Backend\\Portfolio_Backend.csproj": {}
+    "C:\\Users\\maske\\source\\repos\\Portfolio_Backend\\Portfolio_Backend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\maske\\source\\repos\\Portfolio_Backend\\Portfolio_Backend\\Portfolio_Backend.csproj": {
+    "C:\\Users\\maske\\source\\repos\\Portfolio_Backend\\Portfolio_Backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\maske\\source\\repos\\Portfolio_Backend\\Portfolio_Backend\\Portfolio_Backend.csproj",
+        "projectUniqueName": "C:\\Users\\maske\\source\\repos\\Portfolio_Backend\\Portfolio_Backend.csproj",
         "projectName": "Portfolio_Backend",
-        "projectPath": "C:\\Users\\maske\\source\\repos\\Portfolio_Backend\\Portfolio_Backend\\Portfolio_Backend.csproj",
+        "projectPath": "C:\\Users\\maske\\source\\repos\\Portfolio_Backend\\Portfolio_Backend.csproj",
         "packagesPath": "C:\\Users\\maske\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\maske\\source\\repos\\Portfolio_Backend\\Portfolio_Backend\\obj\\",
+        "outputPath": "C:\\Users\\maske\\source\\repos\\Portfolio_Backend\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
