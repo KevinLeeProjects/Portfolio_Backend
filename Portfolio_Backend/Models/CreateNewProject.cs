@@ -30,8 +30,8 @@ namespace Portfolio_Backend.Models
             using (NpgsqlConnection connection = GetDatabaseConnection())
             {
                 // Step 2: Prepare and execute the INSERT query
-                string query = "INSERT INTO projects (title, route, imgsrc, imgalt, github, skills, descriptions, subImages) " +
-                               "VALUES (@title, @route, @imgsrc, @imgalt, @github, @skills, @descriptions, @subImages)";
+                string query = "INSERT INTO projects (title, route, imgsrc, imgalt, github, skills, desctitle, descriptions, subImages) " +
+                               "VALUES (@title, @route, @imgsrc, @imgalt, @github, @skills, @desctitle, @descriptions, @subImages)";
 
                 using (NpgsqlCommand command = new NpgsqlCommand(query, connection))
                 {
@@ -42,6 +42,7 @@ namespace Portfolio_Backend.Models
                     command.Parameters.AddWithValue("@imgalt", model.imgalt);
                     command.Parameters.AddWithValue("@github", model.github);
                     command.Parameters.AddWithValue("@skills", model.skills);
+                    command.Parameters.AddWithValue("@desctitle", model.desctitle);
                     command.Parameters.AddWithValue("@descriptions", model.descriptions);
                     command.Parameters.AddWithValue("@subImages", model.subImages);
 

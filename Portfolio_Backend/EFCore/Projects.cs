@@ -32,6 +32,9 @@ namespace Portfolio_Backend.EFCore
         public string skills { get; set; }
 
         [Required]
+        public string[] desctitle { get; set; }
+
+        [Required]
         public string[] descriptions { get; set; }
 
         [Required]

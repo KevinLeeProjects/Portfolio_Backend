@@ -51,6 +51,7 @@ namespace Portfolio_Backend.Models
                                     imgalt = reader["imgalt"].ToString(),
                                     github = reader["github"].ToString(),
                                     skills = reader["skills"].ToString(),
+                                    desctitle = reader["desctitle"] as string[],
                                     descriptions = reader["descriptions"] as string[],
                                     subImages = reader["subimages"] as string[]
                                 };
