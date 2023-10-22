@@ -20,7 +20,7 @@ builder.Services.AddCors(options =>
                       policy =>
                       {
                           //policy.WithOrigins("http://localhost:3000").AllowAnyHeader().AllowAnyMethod();
-                          policy.WithOrigins("https://lkevinlee.app").AllowAnyHeader().AllowAnyMethod();
+                          policy.WithOrigins("https://kevinlee.app").AllowAnyHeader().AllowAnyMethod();
                       });
 });
 
