@@ -26,12 +26,14 @@ namespace Portfolio_Backend.Controllers
         [Route("getProjects")]
         public IActionResult Get()
         {
+            
             try
             {
                 IEnumerable<ProjectModel> data = _gp.GetAllProjects();
 
                 if(data.Any())
                 {
+                    Console.WriteLine(data);
                     return Ok(data);
                 }
                 else
