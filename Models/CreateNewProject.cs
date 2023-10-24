@@ -1,9 +1,4 @@
-﻿using System.Security.Cryptography;
-using Npgsql;
-using System;
-using System.Data;
-using System.Text;
-using Portfolio_Backend.EFCore;
+﻿using Npgsql;
 
 namespace Portfolio_Backend.Models
 {

@@ -12,6 +12,8 @@ namespace Portfolio_Backend.Controllers
         private readonly DBHelper _db;
         private readonly CreateNewProject _cnp;
         private readonly GetProjects _gp;
+        private readonly CreateNewGame _cng;
+        private readonly GetGames _gg;
         DatabaseHelper _dbHelper = new DatabaseHelper();
 
         public AdminController(EF_DataContext ef_dataContext)
@@ -19,12 +21,14 @@ namespace Portfolio_Backend.Controllers
             _db = new DBHelper(ef_dataContext, _dbHelper);
             _cnp = new CreateNewProject(ef_dataContext, _dbHelper);
             _gp = new GetProjects(ef_dataContext, _dbHelper);
+            _cng = new CreateNewGame(ef_dataContext, _dbHelper);
+            _gg = new GetGames(ef_dataContext, _dbHelper);
         }
 
         // GET /getProjects
         [HttpGet]
         [Route("getProjects")]
-        public IActionResult Get()
+        public IActionResult GetProjects()
         {
             
             try
@@ -44,6 +48,31 @@ namespace Portfolio_Backend.Controllers
             catch(Exception ex)
             {
                 return BadRequest(ex.Message);
+            }
+        }
+
+        //GET /getGames
+        [HttpGet]
+        [Route("getGames")]
+        public IActionResult GetGames()
+        {
+            try
+            {
+                IEnumerable<GameModel> data = _gg.GetAllGames();
+
+                if(data.Any())
+                {
+                    Console.WriteLine(data);
+                    return Ok(data);
+                }
+                else
+                {
+                    return BadRequest();
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest($"{ex.Message}");
             }
         }
 
@@ -86,10 +115,8 @@ namespace Portfolio_Backend.Controllers
         {
             try
             {
-                Console.WriteLine("Projects1");
                 if (_cnp.AddProject(projects))
                 {
-                    Console.WriteLine("Projects");
                     return Ok();
                 }
                 else
@@ -100,6 +127,31 @@ namespace Portfolio_Backend.Controllers
             catch(Exception ex) 
             {
                 return BadRequest(ex.Message); 
+            }
+        }
+
+        //POST /addGame
+        [HttpPost]
+        [Route("addGame")]
+        public IActionResult Post([FromBody] GameModel games)
+        {
+            try
+            {
+                if (_cng.AddGame(games))
+                {
+                    Console.WriteLine("Here");
+                    return Ok();
+                }
+                else
+                {
+                    Console.WriteLine("Here1");
+                    return BadRequest();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return BadRequest(ex.Message);
             }
         }
 

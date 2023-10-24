@@ -1,11 +1,6 @@
 ﻿using Portfolio_Backend.EFCore;
-using Microsoft.Extensions.Configuration;
-using System;
-using System.Security.Cryptography;
 using Npgsql;
-using System;
-using System.Data;
-using System.Text;
+
 
 namespace Portfolio_Backend.Models
 {
