@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Portfolio_Backend.EFCore;
 using Portfolio_Backend.Models;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -14,6 +15,8 @@ namespace Portfolio_Backend.Controllers
         private readonly GetProjects _gp;
         private readonly CreateNewGame _cng;
         private readonly GetGames _gg;
+        private readonly CreatePortfolio _cp;
+        private readonly GetPortfolio _getPortfolio;
         DatabaseHelper _dbHelper = new DatabaseHelper();
 
         public AdminController(EF_DataContext ef_dataContext)
@@ -23,6 +26,8 @@ namespace Portfolio_Backend.Controllers
             _gp = new GetProjects(ef_dataContext, _dbHelper);
             _cng = new CreateNewGame(ef_dataContext, _dbHelper);
             _gg = new GetGames(ef_dataContext, _dbHelper);
+            _cp = new CreatePortfolio(ef_dataContext, _dbHelper);
+            _getPortfolio = new GetPortfolio(ef_dataContext, _dbHelper);
         }
 
         // GET /getProjects
@@ -151,6 +156,59 @@ namespace Portfolio_Backend.Controllers
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
+                return BadRequest(ex.Message);
+            }
+        }
+
+        //POST /addProject/Portfolio
+        [HttpPost]
+        [Route("addProject/Portfolio")]
+        public IActionResult Post([FromBody] PortfolioModel portfolio)
+        {
+            Console.WriteLine("Here3");
+            try
+            {
+                if (_cp.AddPortfolio(portfolio))
+                {
+                    Console.WriteLine("Here");
+                    return Ok();
+                }
+                else
+                {
+                    Console.WriteLine("Here1");
+                    return BadRequest();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Here4");
+                Console.WriteLine(ex.Message);
+                return BadRequest(ex.Message);
+            }
+        }
+
+        //GET /getProject/Portfolio
+        [HttpGet]
+        [Route("getProject/Portfolio")]
+        public IActionResult GetPortfolio()
+        {
+            Console.WriteLine("here");
+            try
+            {
+                IEnumerable<PortfolioModel> data = _getPortfolio.GetPortfolioInfo();
+
+                if (data.Any())
+                {
+                    Console.WriteLine(data);
+                    return Ok(data);
+                }
+                else
+                {
+                    return BadRequest();
+                }
+            }
+            catch (Exception ex)
+            {
                 return BadRequest(ex.Message);
             }
         }

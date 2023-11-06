@@ -1,0 +1,31 @@
+﻿<Properties StartupConfiguration="{1C38070F-D41D-4D0A-8B92-7776E7F7C884}|Default">
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.Portfolio__Backend PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Models/PortfolioModel.cs">
+    <Files>
+      <File FileName="Controllers/AdminController.cs" />
+      <File FileName="Models/GetGames.cs" />
+      <File FileName="Models/GetPortfolio.cs" />
+      <File FileName="Models/PortfolioModel.cs" Line="11" Column="19" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Portfolio_Backend">
+            <Node name="Portfolio_Backend">
+              <Node name="Controllers" expanded="True" />
+              <Node name="Models" expanded="True">
+                <Node name="PortfolioModel.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
