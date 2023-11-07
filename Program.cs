@@ -22,30 +22,30 @@ builder.Services.AddCors(options =>
     options.AddPolicy(name: MyAllowSpecificOrigins,
                       policy =>
                       {
-                          policy.WithOrigins("http://localhost:3000").AllowAnyHeader().AllowAnyMethod();
-                          //policy.WithOrigins("https://kevinlee.app").AllowAnyHeader().AllowAnyMethod();
+                          //policy.WithOrigins("http://localhost:3000").AllowAnyHeader().AllowAnyMethod();
+                          policy.WithOrigins("https://kevinlee.app").AllowAnyHeader().AllowAnyMethod();
                       });
 });
 
-//var configBuilder = new ConfigurationBuilder()
-//    .SetBasePath(Directory.GetCurrentDirectory())
-//    .AddJsonFile("appsettings.json")
-//    .AddAzureKeyVault(
-//        new Uri("https://databasepass.vault.azure.net/"),
-//        new DefaultAzureCredential()
-//    )
-//    .AddEnvironmentVariables();
+var configBuilder = new ConfigurationBuilder()
+    .SetBasePath(Directory.GetCurrentDirectory())
+    .AddJsonFile("appsettings.json")
+    .AddAzureKeyVault(
+        new Uri("https://databasepass.vault.azure.net/"),
+        new DefaultAzureCredential()
+    )
+    .AddEnvironmentVariables();
 
-//var configuration = configBuilder.Build();
+var configuration = configBuilder.Build();
 
-//var pass = configuration["pass"];
-//var userId = configuration["userId"];
-//var db = configuration["db"];
-//var server = configuration["server"];
-//var connectionString = $"Server={server};Database={db};Port=5432;User Id={userId};Password={pass};";
+var pass = configuration["pass"];
+var userId = configuration["userId"];
+var db = configuration["db"];
+var server = configuration["server"];
+var connectionString = $"Server={server};Database={db};Port=5432;User Id={userId};Password={pass};";
 
-//// Replace the placeholder in the configuration
-//configuration["ConnectionStrings:Ef_Postgres_Db"] = connectionString;
+// Replace the placeholder in the configuration
+configuration["ConnectionStrings:Ef_Postgres_Db"] = connectionString;
 
 
 var app = builder.Build();
