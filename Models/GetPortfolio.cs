@@ -18,7 +18,6 @@ namespace Portfolio_Backend.Models
         {
             {
                 List<PortfolioModel> result = new List<PortfolioModel>();
-                Login dbTable = new Login();
                 // Create a configuration builder
                 var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json");
 

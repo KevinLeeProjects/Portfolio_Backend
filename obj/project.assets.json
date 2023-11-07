@@ -2383,30 +2383,32 @@
     ]
   },
   "packageFolders": {
-    "/Users/kevinlee/.nuget/packages/": {},
-    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
+    "C:\\Users\\maske\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/kevinlee/Desktop/Portfolio_Backend/Portfolio_Backend/Portfolio_Backend.csproj",
+      "projectUniqueName": "C:\\Users\\maske\\source\\repos\\Portfolio_Backend\\Portfolio_Backend.csproj",
       "projectName": "Portfolio_Backend",
-      "projectPath": "/Users/kevinlee/Desktop/Portfolio_Backend/Portfolio_Backend/Portfolio_Backend.csproj",
-      "packagesPath": "/Users/kevinlee/.nuget/packages/",
-      "outputPath": "/Users/kevinlee/Desktop/Portfolio_Backend/Portfolio_Backend/obj/",
+      "projectPath": "C:\\Users\\maske\\source\\repos\\Portfolio_Backend\\Portfolio_Backend.csproj",
+      "packagesPath": "C:\\Users\\maske\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\maske\\source\\repos\\Portfolio_Backend\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "/Users/kevinlee/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\maske\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
-        "/usr/local/share/dotnet/library-packs": {},
-        "/usr/local/share/dotnet/sdk/7.0.310/Sdks/Microsoft.NET.Sdk.Web/library-packs": {},
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -2471,7 +2473,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.310/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   },

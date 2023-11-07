@@ -17,6 +17,8 @@ namespace Portfolio_Backend.Controllers
         private readonly GetGames _gg;
         private readonly CreatePortfolio _cp;
         private readonly GetPortfolio _getPortfolio;
+        private readonly CreateLMS _cl;
+        private readonly GetLMS _gl;
         DatabaseHelper _dbHelper = new DatabaseHelper();
 
         public AdminController(EF_DataContext ef_dataContext)
@@ -28,6 +30,8 @@ namespace Portfolio_Backend.Controllers
             _gg = new GetGames(ef_dataContext, _dbHelper);
             _cp = new CreatePortfolio(ef_dataContext, _dbHelper);
             _getPortfolio = new GetPortfolio(ef_dataContext, _dbHelper);
+            _cl = new CreateLMS(ef_dataContext, _dbHelper); 
+            _gl = new GetLMS(ef_dataContext, _dbHelper);
         }
 
         // GET /getProjects
@@ -42,7 +46,6 @@ namespace Portfolio_Backend.Controllers
 
                 if(data.Any())
                 {
-                    Console.WriteLine(data);
                     return Ok(data);
                 }
                 else
@@ -67,7 +70,6 @@ namespace Portfolio_Backend.Controllers
 
                 if(data.Any())
                 {
-                    Console.WriteLine(data);
                     return Ok(data);
                 }
                 else
@@ -88,6 +90,13 @@ namespace Portfolio_Backend.Controllers
         {
             return "Kevin Lee Backend";
         }
+
+        //[HttpGet]
+        //[Route("getGames/{id}")]
+        //public IActionResult Get(int id)
+        //{
+
+        //}
 
         // POST /admin
         [HttpPost]
@@ -144,18 +153,15 @@ namespace Portfolio_Backend.Controllers
             {
                 if (_cng.AddGame(games))
                 {
-                    Console.WriteLine("Here");
                     return Ok();
                 }
                 else
                 {
-                    Console.WriteLine("Here1");
                     return BadRequest();
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
                 return BadRequest(ex.Message);
             }
         }
@@ -165,24 +171,19 @@ namespace Portfolio_Backend.Controllers
         [Route("addProject/Portfolio")]
         public IActionResult Post([FromBody] PortfolioModel portfolio)
         {
-            Console.WriteLine("Here3");
             try
             {
                 if (_cp.AddPortfolio(portfolio))
                 {
-                    Console.WriteLine("Here");
                     return Ok();
                 }
                 else
                 {
-                    Console.WriteLine("Here1");
                     return BadRequest();
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Here4");
-                Console.WriteLine(ex.Message);
                 return BadRequest(ex.Message);
             }
         }
@@ -192,14 +193,58 @@ namespace Portfolio_Backend.Controllers
         [Route("getProject/Portfolio")]
         public IActionResult GetPortfolio()
         {
-            Console.WriteLine("here");
             try
             {
                 IEnumerable<PortfolioModel> data = _getPortfolio.GetPortfolioInfo();
 
                 if (data.Any())
                 {
-                    Console.WriteLine(data);
+                    return Ok(data);
+                }
+                else
+                {
+                    return BadRequest();
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        //POST /addProject/LibraryManagementSystem
+        [HttpPost]
+        [Route("addProject/LibraryManagementSystem")]
+        public IActionResult Post([FromBody] LMSModel lms)
+        {
+            try
+            {
+                if (_cl.AddLMS(lms))
+                {
+                    return Ok();
+                }
+                else
+                {
+                    return BadRequest();
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        //GET /getProject/LibraryManagementSystem
+        [HttpGet]
+        [Route("getProject/LibraryManagementSystem")]
+        public IActionResult GetLMS()
+        {
+            try
+            {
+                IEnumerable<LMSModel> data = _gl.GetLMSInfo();
+
+                if (data.Any())
+                {
                     return Ok(data);
                 }
                 else
